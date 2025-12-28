@@ -1,111 +1,102 @@
-# Dokümanlarınızı Anında JSON'a Çevirin
+# Google Docs & Excel to JSON Converter
 
-**Vando Agency** güvencesiyle; **Excel, Word, CSV, TXT, PDF ve Google Docs** dosyalarınızı geliştiriciler için **işlenebilir, temiz ve standart JSON formatına** dönüştürün.
+**Vando Agency** tarafından geliştirilen bu proje, **Excel, Word, CSV, TXT, PDF ve Google Docs** dosyalarınızı tarayıcı üzerinde (Client-Side) çalışan güvenli bir altyapı ile **JSON formatına** dönüştüren modern bir web uygulamasıdır.
 
-Bu proje; veri işleme, entegrasyon, yapay zeka, raporlama ve otomasyon süreçlerinde dokümanları hızlıca JSON çıktısına dönüştürmek isteyen ekipler için geliştirilmiştir.
+Proje **React 19**, **Vite**, **TypeScript** ve **Tailwind CSS** kullanılarak geliştirilmiştir. Sunucu taraflı bir işlem barındırmaz; tüm dosya ayrıştırma işlemleri kullanıcının tarayıcısında gerçekleşir.
 
 ---
 
 ## 🚀 Özellikler
 
-- 📄 Çoklu dosya formatı desteği  
-  - Excel (`.xlsx`, `.xls`)
-  - Word (`.docx`)
-  - CSV
-  - TXT
-  - PDF
-  - Google Docs
-- 🔄 Otomatik JSON şeması oluşturma
-- 🧹 Temiz ve normalize edilmiş veri çıktısı
-- 🤖 AI & API entegrasyonlarına hazır yapı
-- ⚡ Hızlı ve ölçeklenebilir dönüşüm altyapısı
-- 🛠️ Geliştirici dostu çıktı formatı
+*   **Geniş Format Desteği:**
+    *   Excel (`.xlsx`, `.xls`) & CSV - (`xlsx` kütüphanesi ile)
+    *   Word (`.docx`) - (`mammoth` kütüphanesi ile)
+    *   PDF - (`pdfjs-dist` kütüphanesi ile)
+    *   Text (`.txt`) ve JSON
+    *   **Google Docs Entegrasyonu** (OAuth2 & Google Docs API)
+*   **Gizlilik Odaklı:** Dosyalar sunucuya yüklenmez, işlem tamamen tarayıcıda gerçekleşir.
+*   **Toplu İşlem:** Çoklu dosya yükleme ve tümünü ZIP olarak indirme özelliği.
+*   **JSON Önizleme:** Renklendirilmiş sözdizimi ve kopyalama seçenekleri.
+*   **Çoklu Dil:** Türkçe (TR) ve İngilizce (EN) dil desteği.
+*   **Modern UI:** Tailwind CSS ile duyarlı (responsive) tasarım.
 
 ---
 
-## 🧠 Kullanım Senaryoları
+## 🛠️ Teknoloji Yığını
 
-- Yapay zeka model eğitimi (LLM, RAG, embedding)
-- API entegrasyonları
-- Veri migrasyonu
-- Raporlama ve dashboard sistemleri
-- No-code / Low-code platformlar
-- Backend & frontend veri besleme
+*   **Core:** React 19, TypeScript, Vite
+*   **Styling:** Tailwind CSS, FontAwesome
+*   **State Management:** React Context API (LanguageContext)
+*   **File Parsing:**
+    *   `xlsx` (Excel/CSV)
+    *   `mammoth` (Word)
+    *   `pdfjs-dist` (PDF)
+*   **Integration:** Google Identity Services (GIS), Google API Client (gapi)
 
 ---
 
-## ⚙️ Kurulum, Çalıştırma, Konfigürasyon, Güvenlik, Entegrasyon ve Lisans
+## ⚙️ Kurulum ve Çalıştırma
 
-### Kurulum
+Projeyi yerel ortamınızda çalıştırmak için aşağıdaki adımları izleyin:
 
+### 1. Projeyi Klonlayın
 ```bash
-git clone https://github.com/vandoagency/document-to-json
+git clone https://github.com/vandoagency/document-to-json.git
 cd document-to-json
+```
+
+### 2. Bağımlılıkları Yükleyin
+```bash
 npm install
+# veya
+yarn install
 ```
 
-### Çalıştırma
-
+### 3. Uygulamayı Başlatın (Development)
 ```bash
-npm run start
+npm run dev
 ```
+Tarayıcınızda `http://localhost:5173` adresine giderek uygulamayı görüntüleyebilirsiniz.
 
-veya
-
+### 4. Production Build Almak
 ```bash
-node index.js --file ./docs/ornek.pdf
+npm run build
 ```
-
-### Konfigürasyon
-
-`config.json` dosyası üzerinden aşağıdaki ayarlar yönetilebilir:
-
-- JSON şema yapısı
-- Dil algılama ve otomatik etiketleme
-- Sayfa / tablo / paragraf bazlı ayrıştırma
-- Metadata detayları
-- AI destekli içerik ayrıştırma (opsiyonel)
-
-### Güvenlik & Gizlilik
-
-- Dosyalar üçüncü taraf servislerle paylaşılmaz
-- İstenirse tamamen lokal ortamda çalıştırılabilir
-- Kurumsal projeler için kapalı ağ (on-premise) kurulum desteği mevcuttur
-
-### Entegrasyon
-
-- REST API
-- Webhook
-- AI / LLM sistemleri (OpenAI, Azure, Claude vb.)
-- Vector Database çözümleri (Pinecone, Weaviate, FAISS)
-- Backend frameworkleri (Node.js, Python)
+Bu komut `dist/` klasörüne optimize edilmiş statik dosyaları çıkarır.
 
 ---
 
-## 📦 Örnek JSON Çıktısı
+## 🔑 Konfigürasyon (Google Docs API)
 
-```json
-{
-  "document_type": "pdf",
-  "file_name": "ornek-dokuman.pdf",
-  "content": [
-    {
-      "page": 1,
-      "data": {
-        "title": "Başlık",
-        "paragraphs": [
-          "Birinci paragraf",
-          "İkinci paragraf"
-        ]
-      }
-    }
-  ],
-  "metadata": {
-    "created_at": "2025-01-01",
-    "language": "tr"
-  }
-}
+Uygulama Google Docs verilerini çekmek için Google API kullanır. Yerel ortamda veya kendi hostunuzda bu özelliği kullanmak için:
+
+1.  [Google Cloud Console](https://console.cloud.google.com/)'da bir proje oluşturun.
+2.  **Google Docs API**'yi etkinleştirin.
+3.  **Credentials** (Kimlik Bilgileri) oluşturun:
+    *   **API Key:** Genel erişim için.
+    *   **OAuth 2.0 Client ID:** Kullanıcı oturumu açmak için (Authorised JavaScript origins kısmına `http://localhost:5173` ve production domaininizi ekleyin).
+4.  Uygulama arayüzündeki **Google Docs** sekmesinde "API Ayarları"na tıklayarak bu bilgileri girin. (Bilgiler tarayıcınızın LocalStorage alanında saklanır).
+
+---
+
+## 📂 Proje Yapısı
+
 ```
+src/
+├── components/       # UI bileşenleri (Header, FileUploader, JsonViewer vb.)
+├── contexts/         # Global state (LanguageContext)
+├── services/         # İş mantığı (localFileService, googleDocsFetcher)
+├── types/            # TypeScript tip tanımlamaları
+├── App.tsx           # Ana uygulama bileşeni
+└── index.tsx         # Giriş noktası
+```
+
+---
+
+## 🔒 Güvenlik & Gizlilik
+
+*   **Client-Side Processing:** `services/localFileService.ts` dosyası incelendiğinde görüleceği üzere, dosyalar `FileReader` API kullanılarak tarayıcıda okunur. Herhangi bir backend servisine POST edilmez.
+*   **Google Auth:** OAuth işlemleri Google'ın resmi kütüphaneleri (`accounts.google.com/gsi/client`) üzerinden yönetilir. Token'lar sunucumuzda saklanmaz.
 
 ---
 
@@ -116,6 +107,6 @@ Ticari kullanım, özel lisanslama ve kurumsal çözümler için iletişime geç
 
 ## 📬 İletişim
 
-**Vando Agency**  
-🌐 [https://vandoagency.com](https://vandoagency.com)  
+**Vando Agency**
+🌐 [https://vandoagency.com](https://vandoagency.com)
 📧 info@vandoagency.com
