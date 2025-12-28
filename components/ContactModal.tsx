@@ -172,9 +172,16 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
 
               {/* ReCAPTCHA */}
               <div className="flex justify-center my-4">
+                {/* 
+                  DİKKAT: Aşağıdaki '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI' anahtarı 
+                  Google'ın resmi TEST anahtarıdır. "Invalid key type" hatasını giderir 
+                  fakat test modunda çalışır.
+                  
+                  Yayına alırken burayı kendi "reCAPTCHA v2 - Checkbox" Site Key'iniz ile değiştirin. 
+                */}
                 <ReCAPTCHA
                   ref={recaptchaRef}
-                  sitekey="6LdPrDksAAAAAD3tnDwqwhDZB8jWJh4l5c8Sa_Aw"
+                  sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
                   onChange={onCaptchaChange}
                 />
               </div>
