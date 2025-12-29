@@ -55,9 +55,22 @@ export const parseLocalFile = async (file: File, lang: Language = 'tr'): Promise
       try {
         const data = await readFileAsArrayBuffer(file);
         const workbook = XLSX.read(data, { type: 'array', codepage: 65001 });
-        const sheetName = workbook.SheetNames[0];
-        const sheet = workbook.Sheets[sheetName];
-        return XLSX.utils.sheet_to_json(sheet, { defval: "" });
+        
+        // Handle multiple sheets
+        const sheetsData = workbook.SheetNames.map(sheetName => {
+            const sheet = workbook.Sheets[sheetName];
+            return {
+                sheetName: sheetName,
+                data: XLSX.utils.sheet_to_json(sheet, { defval: "" })
+            };
+        });
+
+        // Return special object to indicate multi-sheet structure
+        return {
+            isMultiSheet: true,
+            sheets: sheetsData
+        };
+
       } catch (error) {
         console.error(error);
         throw new Error(getErrorMsg('errExcel', lang));

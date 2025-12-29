@@ -30,14 +30,29 @@ const FileUploader: React.FC<FileUploaderProps> = ({ onFilesAdded, onError }) =>
     const promises = filesArray.map(async (file) => {
       try {
         const result = await parseLocalFile(file, language);
-        return {
+        
+        // Handle Multi-sheet Excel Files
+        if (result && typeof result === 'object' && result.isMultiSheet && Array.isArray(result.sheets)) {
+            return result.sheets.map((sheet: { sheetName: string, data: any }) => ({
+                id: generateUniqueId(),
+                creatorId: currentDeviceId,
+                fileName: `${file.name} (${sheet.sheetName})`, // Append sheet name to filename
+                fileType: file.type || 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+                data: sheet.data,
+                timestamp: new Date().toISOString()
+            } as ConvertedData));
+        }
+
+        // Handle Standard Single Files (PDF, Word, TXT, etc.)
+        return [{
           id: generateUniqueId(),
           creatorId: currentDeviceId, // Inject User ID
           fileName: file.name,
           fileType: file.type || file.name.split('.').pop() || 'unknown',
           data: result,
           timestamp: new Date().toISOString()
-        } as ConvertedData;
+        } as ConvertedData];
+
       } catch (err: any) {
         errors.push(`${file.name}: ${err.message || t('errorGeneral')}`);
         return null;
@@ -46,7 +61,10 @@ const FileUploader: React.FC<FileUploaderProps> = ({ onFilesAdded, onError }) =>
 
     try {
       const results = await Promise.all(promises);
-      const validFiles = results.filter((f): f is ConvertedData => f !== null);
+      // Filter nulls and flatten array (because Excel files might return multiple items)
+      const validFiles = results
+        .filter((r): r is ConvertedData[] => r !== null)
+        .flat();
 
       if (validFiles.length > 0) {
         onFilesAdded(validFiles);
