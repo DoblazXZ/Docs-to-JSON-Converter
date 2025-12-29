@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 
-type ModalType = 'privacy' | 'terms' | 'cookies' | null;
+type ModalType = 'privacy' | 'terms' | 'cookies' | 'about' | null;
 
 interface LegalModalsProps {
   activeModal: ModalType;
@@ -93,6 +93,68 @@ const LegalModals: React.FC<LegalModalsProps> = ({ activeModal, onClose }) => {
           <p>Data required for the application to function. For example: Data used to remember your Google API keys in your browser.</p>
           <h4 className="font-bold text-gray-900">2. Analytics Cookies</h4>
           <p>Google Analytics cookies that allow us to measure visitor numbers and traffic sources.</p>
+        </div>
+      )
+    },
+    about: {
+      title: t('aboutProject'),
+      body: language === 'tr' ? (
+        <div className="space-y-5 text-sm text-gray-700">
+          <p><strong>Docs to JSON</strong>, geliştiriciler, veri analistleri ve içerik yöneticileri için oluşturulmuş, tarayıcı tabanlı bir dosya dönüştürme aracıdır. Karmaşık doküman formatlarını (Excel, Word, vb.) herhangi bir kod yazmadan saniyeler içinde yapılandırılmış JSON verisine çevirmenizi sağlar.</p>
+          
+          <div>
+            <h4 className="font-bold text-gray-900 mb-2 border-b pb-1">Desteklenen Formatlar</h4>
+            <ul className="list-disc list-inside space-y-1 ml-1 text-gray-600">
+              <li><strong>Excel (XLSX, XLS):</strong> Çoklu sayfa (tab/sheet) desteği ile her sayfayı ayrı bir JSON nesnesi olarak alır.</li>
+              <li><strong>CSV:</strong> Virgülle ayrılmış değerleri JSON dizilerine dönüştürür.</li>
+              <li><strong>Word (DOCX, DOC):</strong> Paragraf yapılarını koruyarak metin içeriğini ayrıştırır.</li>
+              <li><strong>PDF:</strong> Sayfa bazlı metin çıkarma işlemi yapar.</li>
+              <li><strong>Google Docs:</strong> Doğrudan Google Drive bağlantısı ile doküman içeriğini çeker.</li>
+            </ul>
+          </div>
+
+          <div>
+             <h4 className="font-bold text-gray-900 mb-2 border-b pb-1">Nasıl Çalışır?</h4>
+             <ol className="list-decimal list-inside space-y-1 ml-1 text-gray-600">
+               <li>Dosyalarınızı sürükleyip bırakın veya seçin.</li>
+               <li>Uygulama dosyaları tarayıcınızda (Client-Side) işler. Sunucuya gönderilmez.</li>
+               <li>Oluşan JSON çıktısını önizleyin, kopyalayın veya indirin.</li>
+               <li>Çoklu dosya yüklediyseniz, tümünü tek bir ZIP arşivi olarak indirebilirsiniz.</li>
+             </ol>
+          </div>
+          
+          <div className="bg-blue-50 p-3 rounded-lg border border-blue-100 text-blue-800 text-xs">
+            <strong>Güvenlik Notu:</strong> Bu proje %100 istemci taraflı (Client-Side) çalışır. Verileriniz sunucularımıza yüklenmez, tamamen kendi cihazınızda işlenir.
+          </div>
+        </div>
+      ) : (
+        <div className="space-y-5 text-sm text-gray-700">
+          <p><strong>Docs to JSON</strong> is a browser-based file conversion tool built for developers, data analysts, and content managers. It allows you to convert complex document formats (Excel, Word, etc.) into structured JSON data in seconds without writing any code.</p>
+          
+          <div>
+            <h4 className="font-bold text-gray-900 mb-2 border-b pb-1">Supported Formats</h4>
+            <ul className="list-disc list-inside space-y-1 ml-1 text-gray-600">
+              <li><strong>Excel (XLSX, XLS):</strong> Supports multi-sheet (tabs) extraction, converting each sheet to a separate JSON object.</li>
+              <li><strong>CSV:</strong> Converts comma-separated values into JSON arrays.</li>
+              <li><strong>Word (DOCX, DOC):</strong> Extracts text content while preserving paragraph structures.</li>
+              <li><strong>PDF:</strong> Performs page-based text extraction.</li>
+              <li><strong>Google Docs:</strong> Fetches document content directly via Google Drive connection.</li>
+            </ul>
+          </div>
+
+          <div>
+             <h4 className="font-bold text-gray-900 mb-2 border-b pb-1">How It Works</h4>
+             <ol className="list-decimal list-inside space-y-1 ml-1 text-gray-600">
+               <li>Drag and drop your files or select them.</li>
+               <li>The app processes files in your browser (Client-Side). No server upload.</li>
+               <li>Preview, copy, or download the generated JSON output.</li>
+               <li>If you uploaded multiple files, you can download all as a single ZIP archive.</li>
+             </ol>
+          </div>
+
+          <div className="bg-blue-50 p-3 rounded-lg border border-blue-100 text-blue-800 text-xs">
+            <strong>Security Note:</strong> This project works 100% Client-Side. Your data is not uploaded to our servers; it is processed entirely on your device.
+          </div>
         </div>
       )
     }

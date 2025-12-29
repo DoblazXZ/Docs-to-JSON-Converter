@@ -4,9 +4,10 @@ import { useLanguage } from '../contexts/LanguageContext';
 interface FooterProps {
   onOpenPrivacy: () => void;
   onOpenTerms: () => void;
+  onOpenAbout: () => void;
 }
 
-const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenTerms }) => {
+const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenTerms, onOpenAbout }) => {
   const { t } = useLanguage();
 
   return (
@@ -26,6 +27,10 @@ const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenTerms }) => {
           </div>
 
           <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-500">
+             <button onClick={onOpenAbout} className="hover:text-blue-600 transition-colors font-medium">
+              {t('aboutProject')}
+            </button>
+            <span className="text-gray-300">|</span>
             <button onClick={onOpenPrivacy} className="hover:text-blue-600 transition-colors">
               {t('privacyPolicy')}
             </button>

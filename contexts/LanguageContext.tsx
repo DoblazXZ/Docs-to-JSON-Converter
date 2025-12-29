@@ -75,6 +75,7 @@ const translations: Translations = {
   footerDesc: { tr: "Geliştirici Dostu Araçlar", en: "Developer Friendly Tools" },
   privacyPolicy: { tr: "Gizlilik Politikası", en: "Privacy Policy" },
   termsOfUse: { tr: "Kullanım Şartları", en: "Terms of Use" },
+  aboutProject: { tr: "Proje Hakkında", en: "About Project" },
   developer: { tr: "Geliştirici:", en: "Developer:" },
 
   // Contact Form

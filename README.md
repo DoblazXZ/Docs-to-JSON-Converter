@@ -9,14 +9,17 @@ Proje **React 19**, **Vite**, **TypeScript** ve **Tailwind CSS** kullanılarak g
 ## 🚀 Özellikler
 
 *   **Geniş Format Desteği:**
-    *   Excel (`.xlsx`, `.xls`) & CSV - (`xlsx` kütüphanesi ile)
-    *   Word (`.docx`) - (`mammoth` kütüphanesi ile)
-    *   PDF - (`pdfjs-dist` kütüphanesi ile)
-    *   Text (`.txt`) ve JSON
-    *   **Google Docs Entegrasyonu** (OAuth2 & Google Docs API)
+    *   **Excel (`.xlsx`, `.xls`):** Çoklu sayfa (sheet) desteği ile her sekmeyi ayrı bir JSON olarak dışarı aktarır.
+    *   **CSV:** Virgülle ayrılmış verileri JSON dizilerine dönüştürür.
+    *   **Word (`.docx`):** Paragrafları ve metin yapısını koruyarak ayrıştırır.
+    *   **PDF:** Sayfa bazlı metin çıkarma işlemi yapar.
+    *   **Text (`.txt`) ve JSON:** Düz metinleri işler.
+    *   **Google Docs Entegrasyonu:** OAuth2 ile Google Drive üzerindeki dokümanlarınızı doğrudan çeker.
 *   **Gizlilik Odaklı:** Dosyalar sunucuya yüklenmez, işlem tamamen tarayıcıda gerçekleşir.
-*   **Toplu İşlem:** Çoklu dosya yükleme ve tümünü ZIP olarak indirme özelliği.
-*   **JSON Önizleme:** Renklendirilmiş sözdizimi ve kopyalama seçenekleri.
+*   **Toplu İşlem:** 
+    *   Aynı anda 15 dosyaya kadar yükleme.
+    *   Tek tıklamayla tüm sonuçları **ZIP** arşivi olarak indirme.
+*   **JSON Önizleme:** Renklendirilmiş sözdizimi, kopyalama ve tekil indirme seçenekleri.
 *   **Çoklu Dil:** Türkçe (TR) ve İngilizce (EN) dil desteği.
 *   **Modern UI:** Tailwind CSS ile duyarlı (responsive) tasarım.
 

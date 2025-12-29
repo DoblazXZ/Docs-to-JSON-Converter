@@ -17,7 +17,7 @@ const App: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   
   // Modal States
-  const [activeModal, setActiveModal] = useState<'privacy' | 'terms' | 'cookies' | null>(null);
+  const [activeModal, setActiveModal] = useState<'privacy' | 'terms' | 'cookies' | 'about' | null>(null);
   const [showClearConfirm, setShowClearConfirm] = useState(false);
 
   const handleFilesAdded = (newFiles: ConvertedData[]) => {
@@ -167,6 +167,7 @@ const App: React.FC = () => {
       <Footer 
         onOpenPrivacy={() => setActiveModal('privacy')}
         onOpenTerms={() => setActiveModal('terms')}
+        onOpenAbout={() => setActiveModal('about')}
       />
       
       <CookieConsent onOpenPolicy={() => setActiveModal('cookies')} />
